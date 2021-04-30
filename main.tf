@@ -101,10 +101,10 @@ resource "aws_security_group" "this" {
   dynamic "ingress" {
     for_each = each.value.ingress
     content {
-      from_port   = each.value.from_port
-      to_port     = each.value.to_port
-      protocol    = each.value.protocol
-      cidr_blocks = each.value.cidr_blocks
+      from_port   = ingress.value.from_port
+      to_port     = ingress.value.to_port
+      protocol    = ingress.value.protocol
+      cidr_blocks = ingress.value.cidr_blocks
     }
   }
 
